@@ -1,0 +1,44 @@
+imports:
+  - { resource: ../../../../src/RealEstate/Shared/Infrastructure/DependencyInjection/backoffice_services.yml }
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  _instanceof:
+    Qm\Shared\Domain\Bus\Event\DomainEventSubscriber:
+      tags: [ 'qm.domain_event_subscriber' ]
+
+    Qm\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [ 'qm.command_handler' ]
+
+    Qm\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [ 'qm.query_handler' ]
+
+  # Wire
+  Qm\Apps\Mortgage\Backend\Controller\:
+    resource: '../src/Controller'
+    tags: [ 'controller.service_arguments' ]
+
+  Qm\:
+    resource: '../../../../src'
+
+  Qm\Shared\:
+    resource: '../../../../src/Shared'
+
+  Qm\Mortgage\:
+    resource: '../../../../src/Mortgage'
+
+  Qm\Shared\Infrastructure\Bus\Event\InMemorySymfonyEventBus:
+    tags: ['qm.event_bus']
+    arguments: [ !tagged qm.domain_event_subscriber ]
+    lazy: true
+
+  Qm\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
+    tags: ['qm.command_bus']
+    arguments: [ !tagged qm.command_handler ]
+
+  Qm\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
+    tags: [ 'qm.query_bus' ]
+    arguments: [ !tagged qm.query_handler ]

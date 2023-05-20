@@ -1,0 +1,4 @@
+dummy_get:
+  path: /dummy
+  controller: Qm\Apps\RealEstate\Backend\Controller\Dummy\DummyGetController
+  methods:  [GET]

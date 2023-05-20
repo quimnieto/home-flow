@@ -1,0 +1,5 @@
+parameters:
+    checkGenericClassInNonGenericObjectType: false
+    excludePaths:
+            analyse:
+                - src/Shared/Infrastructure/Doctrine

@@ -1,0 +1,9 @@
+clients_get:
+  path: /clients
+  controller: Qm\Apps\RealEstate\Backend\Controller\Clients\ClientsGetController
+  methods:  [GET]
+
+clients_put:
+  path: /clients/{id}
+  controller: Qm\Apps\RealEstate\Backend\Controller\Clients\ClientsPutController
+  methods:  [PUT]

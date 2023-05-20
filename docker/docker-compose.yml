@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  home-flow-nginx:
+    container_name: home-flow-nginx
+    build:
+      context: .
+      dockerfile: nginx/dockerfile
+    volumes:
+      - ../:/var/www/home-flow/
+    ports:
+      - "8001:8001"
+      - "8002:8002"
+    networks:
+      - home-flow-network
+    links:
+      - home-flow-php
+    depends_on:
+      - home-flow-php
+
+  home-flow-php:
+    container_name: home-flow-php
+    build:
+      context: .
+      dockerfile: php/dockerfile
+    environment:
+      APP_ENV: dev
+    volumes:
+      - ../:/var/www/home-flow/
+    networks:
+      - home-flow-network
+
+  home-flow-real-estate-db:
+    container_name: home-flow-real-estate-db
+    image: mysql
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password' ]
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./real-estate-mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "--user=root", "--password=", "--host=127.0.0.1", "ping", "--silent" ]
+      interval: 2s
+      timeout: 10s
+      retries: 10
+    networks:
+      - home-flow-network
+
+  home-flow-mortgage-db:
+    container_name: home-flow-mortgage-db
+    image: mysql
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password' ]
+    ports:
+      - "3309:3306"
+    volumes:
+      - ./mortgage-mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "--user=root", "--password=", "--host=127.0.0.1", "ping", "--silent" ]
+      interval: 2s
+      timeout: 10s
+      retries: 10
+    networks:
+      - home-flow-network
+
+networks:
+  home-flow-network:
