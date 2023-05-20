@@ -11,7 +11,7 @@ use Qm\Shared\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
 
 final class BackofficeEntityManagerFactory
 {
-    private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/backoffice.sql';
+    private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/real-estate-db.sql';
 
     /**
      * @throws Exception

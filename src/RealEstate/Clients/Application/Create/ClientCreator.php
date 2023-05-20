@@ -8,7 +8,7 @@ use Qm\RealEstate\Clients\Domain\Aggregate\Client;
 use Qm\RealEstate\Clients\Domain\Repository\ClientRepository;
 use Qm\Shared\Domain\Bus\Event\EventBus;
 
-readonly class ClientCreator
+final readonly class ClientCreator
 {
     public function __construct(
         private ClientRepository $repository,

@@ -1,0 +1,4 @@
+properties_put:
+  path: /properties/{id}
+  controller: Qm\Apps\RealEstate\Backend\Controller\Properties\PropertiesPutController
+  methods:  [PUT]
