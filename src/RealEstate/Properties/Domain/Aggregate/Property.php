@@ -10,10 +10,10 @@ use Qm\Shared\Domain\Aggregate\AggregateRoot;
 class Property extends AggregateRoot
 {
     public function __construct(
-      private PropertyId $id,
-      private Address $address,
-      private PostalCode $postalCode,
-      private Price $price,
+      public readonly PropertyId $id,
+      public readonly Address $address,
+      public readonly PostalCode $postalCode,
+      public readonly Price $price,
     ) {
     }
 
@@ -33,25 +33,5 @@ class Property extends AggregateRoot
         $property->record(new PropertyCreatedEvent($id, $address, $postalCode, $price));
 
         return $property;
-    }
-
-    public function id(): PropertyId
-    {
-        return $this->id;
-    }
-
-    public function address(): Address
-    {
-        return $this->address;
-    }
-
-    public function postalCode(): PostalCode
-    {
-        return $this->postalCode;
-    }
-
-    public function price(): Price
-    {
-        return $this->price;
     }
 }
