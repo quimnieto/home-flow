@@ -1,8 +1,8 @@
 <?php
 
-namespace Repository;
+namespace Qm\RealEstate\Properties\Domain\Repository;
 
-use Property;
+use Qm\RealEstate\Properties\Domain\Aggregate\Property;
 
 interface PropertyRepository
 {

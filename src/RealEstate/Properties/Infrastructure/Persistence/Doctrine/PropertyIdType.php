@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Doctrine;
+namespace Qm\RealEstate\Properties\Infrastructure\Persistence\Doctrine;
 
-use PropertyId;
+use Qm\RealEstate\Properties\Domain\Aggregate\PropertyId;
 use Qm\RealEstate\Shared\Infrastructure\Doctrine\UuIdType;
 
 class PropertyIdType extends UuIdType

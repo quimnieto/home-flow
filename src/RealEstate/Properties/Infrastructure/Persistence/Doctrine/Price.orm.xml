@@ -4,8 +4,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <embeddable name="Qm\RealEstate\Properties\Domain\Aggregate\PostalCode">
-        <field name="value" type="int" column="postal_code" />
+    <embeddable name="Qm\RealEstate\Properties\Domain\Aggregate\Price">
+        <field name="value" type="integer" column="price" />
     </embeddable>
 
 </doctrine-mapping>

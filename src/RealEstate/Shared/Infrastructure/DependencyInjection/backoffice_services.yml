@@ -17,3 +17,4 @@ services:
 
   # Clients
   Qm\RealEstate\Clients\Domain\Repository\ClientRepository: '@Qm\RealEstate\Clients\Infrastructure\Persistence\DoctrineClientRepository'
+  Qm\RealEstate\Properties\Domain\Repository\PropertyRepository: '@Qm\RealEstate\Properties\Infrastructure\Persistence\DoctrinePropertyRepository'

@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Qm\RealEstate\Properties\Domain\Aggregate\Property" table="clients">
+    <entity name="Qm\RealEstate\Properties\Domain\Aggregate\Property" table="properties">
         <id name="id" type="property_id" column="id" length="36" />
 
         <embedded name="address" class="Qm\RealEstate\Properties\Domain\Aggregate\Address" use-column-prefix="false" />

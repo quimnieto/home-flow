@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
+namespace Qm\RealEstate\Properties\Infrastructure\Persistence;
+
+use Qm\RealEstate\Properties\Domain\Aggregate\Property;
+use Qm\RealEstate\Properties\Domain\Repository\PropertyRepository;
 use Qm\Shared\Infrastructure\Doctrine\DoctrineRepository;
-use Repository\PropertyRepository;
 
 class DoctrinePropertyRepository extends DoctrineRepository implements PropertyRepository
 {

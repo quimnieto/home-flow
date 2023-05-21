@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Qm\Apps\RealEstate\Backend\Controller\Properties;
 
-use CreatePropertyCommand;
+use Qm\RealEstate\Properties\Application\Create\CreatePropertyCommand;
 use Qm\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
+namespace Qm\RealEstate\Properties\Application\Create;
+
+use Qm\RealEstate\Properties\Domain\Aggregate\Property;
 use Qm\Shared\Domain\Bus\Event\EventBus;
-use Repository\PropertyRepository;
+use Qm\RealEstate\Properties\Domain\Repository\PropertyRepository;
 
 final readonly class PropertyCreator
 {
