@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Qm\RealEstate\Shared\Infrastructure\Doctrine;
+namespace Qm\Mortgage\Shared\Infrastructure\Doctrine;
 
 use Qm\Shared\Domain\Utils;
 use function Lambdish\Phunctional\filter;
@@ -67,8 +67,6 @@ final class DbalTypesSearcher
                     $object = new $class();
 
                     return $object;
-
-                    return "Qm\\$contextName\\$classWithoutPrefix";
                 },
                 $files
             );

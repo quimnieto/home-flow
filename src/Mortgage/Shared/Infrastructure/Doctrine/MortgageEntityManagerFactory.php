@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Qm\RealEstate\Shared\Infrastructure\Doctrine;
+namespace Qm\Mortgage\Shared\Infrastructure\Doctrine;
 
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
 use Qm\Shared\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
 
-final class RealEstateEntityManagerFactory
+final class MortgageEntityManagerFactory
 {
-    private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/real-estate-db.sql';
+    private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/mortgage-db.sql';
 
     /**
      * @throws Exception
@@ -22,10 +22,10 @@ final class RealEstateEntityManagerFactory
         $isDevMode = 'prod' !== $environment;
 
         $prefixes = array_merge(
-            DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../RealEstate', 'Qm\RealEstate')
+            DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../Mortgage', 'Qm\Mortgage')
         );
 
-        $dbalCustomTypesClasses = DbalTypesSearcher::inPath(__DIR__ . '/../../../../RealEstate', 'RealEstate');
+        $dbalCustomTypesClasses = DbalTypesSearcher::inPath(__DIR__ . '/../../../../Mortgage', 'Mortgage');
 
         return DoctrineEntityManagerFactory::create(
             $parameters,

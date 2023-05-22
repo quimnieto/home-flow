@@ -1,5 +1,5 @@
 imports:
-  - { resource: ../../../../src/RealEstate/Shared/Infrastructure/DependencyInjection/backoffice_services.yml }
+  - { resource: ../../../../src/RealEstate/Shared/Infrastructure/DependencyInjection/real_estate_services.yml }
 
 services:
   _defaults:

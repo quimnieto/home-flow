@@ -9,26 +9,40 @@ use Qm\Shared\Domain\Aggregate\AggregateRoot;
 
 class Client extends AggregateRoot
 {
-    public function __construct(
-        public readonly ClientId        $id,
-        public readonly ClientFirstName $clientFirstName,
-        public readonly ClientLastName  $clientLastName,
+    private function __construct(
+        private ClientId $id,
+        private ClientFirstName $firstName,
+        private ClientLastName $lastName,
     ) {
     }
 
-    public static function fromPrimitives(
-        string $id,
-        string $firstName,
-        string $lastName,
-    ): self {
-        $client = new self(
-            ClientId::of($id),
-            ClientFirstName::of($firstName),
-            ClientLastName::of($lastName)
+    public static function create(ClientId $id, ClientFirstName $firstName, ClientLastName  $lastName,): self
+    {
+        $client = new self($id, $firstName, $lastName);
+
+        $client->record(
+            new ClientCreatedEvent(
+                $id->value(),
+                $firstName->value(),
+                $lastName->value()
+            )
         );
 
-        $client->record(new ClientCreatedEvent($id, $firstName, $lastName));
-
         return $client;
+    }
+
+    public function id(): ClientId
+    {
+        return $this->id;
+    }
+
+    public function clientFirstName(): ClientFirstName
+    {
+        return $this->firstName;
+    }
+
+    public function clientLastName(): ClientLastName
+    {
+        return $this->lastName;
     }
 }

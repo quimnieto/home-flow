@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
 use Qm\Shared\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
 
-final class BackofficeEntityManagerFactory
+final class RealEstateEntityManagerFactory
 {
     private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/real-estate-db.sql';
 

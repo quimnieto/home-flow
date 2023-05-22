@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Qm\RealEstate\Shared\Infrastructure\Doctrine;
+namespace Qm\Mortgage\Shared\Infrastructure\Doctrine;
 
 use Qm\Shared\Domain\Utils;
 use Qm\Shared\Domain\ValueObject\Uuid;

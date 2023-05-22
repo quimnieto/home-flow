@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Qm\RealEstate\Shared\Infrastructure\Doctrine;
+namespace Qm\Mortgage\Shared\Infrastructure\Doctrine;
 
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;

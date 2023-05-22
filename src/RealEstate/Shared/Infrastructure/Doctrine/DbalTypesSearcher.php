@@ -68,7 +68,7 @@ final class DbalTypesSearcher
 
                     return $object;
 
-                    return "Qm\\$contextName\\$classWithoutPrefix";
+//                    return "Qm\\$contextName\\$classWithoutPrefix";
                 },
                 $files
             );
