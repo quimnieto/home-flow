@@ -10,27 +10,29 @@ use Qm\Shared\Domain\Aggregate\AggregateRoot;
 class Property extends AggregateRoot
 {
     public function __construct(
-      public readonly PropertyId $id,
-      public readonly Address $address,
-      public readonly PostalCode $postalCode,
-      public readonly Price $price,
+      public PropertyId $id,
+      public Address $address,
+      public PostalCode $postalCode,
+      public Price $price,
     ) {
     }
 
-    public static function fromPrimitives(
-        string $id,
-        string $address,
-        int $postalCode,
-        int $price,
+    public static function create(
+        PropertyId $id,
+        Address $address,
+        PostalCode $postalCode,
+        Price $price,
     ): self {
-        $property = new self(
-            PropertyId::of($id),
-            Address::of($address),
-            PostalCode::of($postalCode),
-            Price::of($price)
-        );
+        $property = new self($id, $address, $postalCode, $price);
 
-        $property->record(new PropertyCreatedEvent($id, $address, $postalCode, $price));
+        $property->record(
+            new PropertyCreatedEvent(
+                $id->value(),
+                $address->value(),
+                $postalCode->value(),
+                $price->value()
+            )
+        );
 
         return $property;
     }
