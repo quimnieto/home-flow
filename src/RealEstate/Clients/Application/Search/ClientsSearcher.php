@@ -17,7 +17,7 @@ class ClientsSearcher
 
     public function search(): ClientsListResponse
     {
-        $clientsList = $this->repository->searchAll();
+        $clients = $this->repository->searchAll();
 
         return new ClientsListResponse(
             ...array_map(
@@ -26,7 +26,7 @@ class ClientsSearcher
                 $client->clientFirstName()->value(),
                 $client->clientLastName()->value(),
             ),
-                $clientsList
+                $clients->items()
             )
         );
     }
