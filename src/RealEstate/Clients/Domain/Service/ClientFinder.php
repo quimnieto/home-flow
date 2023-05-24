@@ -19,7 +19,7 @@ class ClientFinder
     {
     }
 
-    public function find(ClientId $id): Client
+    public function byId(ClientId $id): Client
     {
         $filters = $this->createFilters($id);
         $order = Order::none();

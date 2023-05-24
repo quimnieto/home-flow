@@ -11,6 +11,8 @@
 /tmp
 /apps/*/*/var/
 /docker/mysql/
+/docker/mortgage-mysql/
+docker/real-estate-mysql/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

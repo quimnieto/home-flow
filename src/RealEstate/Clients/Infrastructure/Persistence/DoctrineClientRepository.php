@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Qm\RealEstate\Clients\Infrastructure\Persistence;
 
-use Doctrine\ORM\Exception\NotSupported;
 use Qm\RealEstate\Clients\Domain\Aggregate\Client;
 use Qm\RealEstate\Clients\Domain\Aggregate\Clients;
 use Qm\RealEstate\Clients\Domain\Repository\ClientRepository;
@@ -16,8 +15,8 @@ class DoctrineClientRepository extends DoctrineRepository implements ClientRepos
 {
     private static array $criteriaToDoctrineFields = [
         'id' => 'id',
-        'firstName' => 'firstName',
-        'lastName' => 'lastName',
+        'firstName' => 'first_name',
+        'lastName' => 'last_name',
     ];
 
     public function save(Client $client): void

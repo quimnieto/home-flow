@@ -10,9 +10,9 @@ use Qm\Shared\Domain\Aggregate\AggregateRoot;
 class Client extends AggregateRoot
 {
     private function __construct(
-        private ClientId $id,
-        private ClientFirstName $firstName,
-        private ClientLastName $lastName,
+        private ClientId        $id,
+        private ClientFirstName $clientFirstName,
+        private ClientLastName  $clientLastName,
     ) {
     }
 
@@ -38,11 +38,11 @@ class Client extends AggregateRoot
 
     public function clientFirstName(): ClientFirstName
     {
-        return $this->firstName;
+        return $this->clientFirstName;
     }
 
     public function clientLastName(): ClientLastName
     {
-        return $this->lastName;
+        return $this->clientLastName;
     }
 }

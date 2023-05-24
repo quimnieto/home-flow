@@ -3,6 +3,11 @@ clients_get:
   controller: Qm\Apps\RealEstate\Backend\Controller\Clients\ClientsGetController
   methods:  [GET]
 
+client_get:
+  path: /client/{id}
+  controller: Qm\Apps\RealEstate\Backend\Controller\Clients\ClientGetController
+  methods:  [GET]
+
 clients_put:
   path: /clients/{id}
   controller: Qm\Apps\RealEstate\Backend\Controller\Clients\ClientsPutController
